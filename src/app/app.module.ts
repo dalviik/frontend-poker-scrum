@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GameComponent } from './pages/game/game.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -19,13 +19,13 @@ import { DialogModule } from 'primeng/dialog';
     AppComponent,
     GameComponent,
     HomeComponent,
-    
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ButtonModule,
+    BrowserAnimationsModule,
     InputTextModule,
     DialogModule
     

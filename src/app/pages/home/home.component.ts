@@ -7,15 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
+  modalNewGame:boolean = false;
+  modalEnterGame:boolean = true;
+  
+  codigoSala = 0;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  newGame() {
-
+  newGame() {    
+    this.modalNewGame = true;
   }
+
   enterGame() {
-
+    this.modalEnterGame = true;
   }
+
+  searchTable(){
+    alert('Busqueda')
+  }
+
+
 }

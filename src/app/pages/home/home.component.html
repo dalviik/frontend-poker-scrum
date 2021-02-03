@@ -18,7 +18,7 @@
 <div class="p-grid p-justify-center p-align-center ">
 
     <button
-        (click)="modalNewGame()"
+        (click)="newGame()"
         pButton
         icon="pi pi-plus"
         type="button"
@@ -27,6 +27,7 @@
     ></button>
 
     <button
+        (click)="enterGame()"
         pButton
         type="button"
         icon="pi pi-play"
@@ -35,3 +36,42 @@
         style="margin-left: 2em;"
     ></button>
 </div>
+<p-dialog
+    header="Crear Sala"
+    [(visible)]="modalNewGame"
+    [modal]="true"
+>
+    Se ha creado la nueva sala
+    <div class="p-input-filled">
+        <input
+            type="text"
+            pInputText
+        >
+    </div>
+</p-dialog>
+<p-dialog
+    header="Ingresar Sala"
+    [(visible)]="modalEnterGame"
+    [modal]="true"
+>
+    <div class="p-col-12 p-grid">Ingrese el codigo de la sala</div>
+    <div class="p-col-12 p-grid">
+        <input
+            type="text"
+            pInputText
+            [(ngModel)]="codigoSala"
+            placeholder="Search"
+        >
+    </div>
+    <div class="p-col-12 p-grid p-justify-center">
+        <button
+            (click)="searchTable()"
+            pButton
+            label="Buscar"
+            icon="pi pi-search"
+        >
+
+        </button>
+    </div>
+
+</p-dialog>
