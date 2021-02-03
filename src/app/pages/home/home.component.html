@@ -1,4 +1,4 @@
-<div style="margin-top: 200px;"></div>
+<div style="margin-top: 100px;"></div>
 
 <div class="p-grid p-justify-center">
     <h1>PokerScrum :P</h1>
@@ -7,6 +7,7 @@
 <br>
 <div class="p-grid p-justify-center">
     <img
+        class="pokerCardsIcon animated fadeIn"
         src="../../../assets/img/poker-casino-svgrepo-com.svg"
         alt
         style="max-width: 40%;"
@@ -19,19 +20,19 @@
 
     <button
         (click)="newGame()"
+        class="p-button-success p-button-outlined p-button-raised p-button-lg animated fadeInUp delay-1s"
         pButton
         icon="pi pi-plus"
         type="button"
-        class="p-button-success p-button-outlined p-button-raised p-button-lg"
         label="Crear Sala"
     ></button>
 
     <button
+        class="p-button-lg p-button-outlined p-button-raised animated fadeInUp delay-1s"
         (click)="enterGame()"
         pButton
         type="button"
         icon="pi pi-play"
-        class="p-button-lg p-button-outlined p-button-raised"
         label="Ingresar"
         style="margin-left: 2em;"
     ></button>
@@ -52,7 +53,6 @@
 <p-dialog
     header="Ingresar Sala"
     [(visible)]="modalEnterGame"
-    
 >
     <div class="p-col-12 p-grid">Ingrese el codigo de la sala</div>
     <div class="p-col-12 p-grid">
