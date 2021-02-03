@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,17 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
 
-  modalNewGame:boolean = false;
-  modalEnterGame:boolean = true;
-  
+  modalNewGame: boolean = false;
+  modalEnterGame: boolean = false;
+
   codigoSala = 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  newGame() {    
+  newGame() {
     this.modalNewGame = true;
   }
 
@@ -26,8 +27,16 @@ export class HomeComponent implements OnInit {
     this.modalEnterGame = true;
   }
 
-  searchTable(){
-    alert('Busqueda')
+  searchTable() {
+   
+    
+    Swal.fire({
+      icon: 'success',
+      title: 'SALA ENCONTRADA',
+      text: 'No olvides tu cara de poker ;)'
+    }).then((resp) => {
+      this.router.navigate(['/game',1]);
+    })
   }
 
 
