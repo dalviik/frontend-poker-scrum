@@ -15,11 +15,13 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import {TooltipModule} from 'primeng/tooltip';
+import { PlayerGameComponent } from './pages/player-game/player-game.component';
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
     HomeComponent,
+    PlayerGameComponent,
   ],
   imports: [
     BrowserModule,

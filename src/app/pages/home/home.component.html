@@ -21,7 +21,7 @@
 
     <button
         pButton
-        (click)="modalCreateRoom = true"
+        (click)="createRoom()"
         class="p-button-success p-button-outlined p-button-raised p-button-lg animated fadeInUp delay-1s"
         icon="pi pi-plus"
         type="button"
@@ -66,7 +66,7 @@
     </div>
     <div class="p-col-12 p-grid p-justify-center">
         <button
-            (click)="createRoom()"
+            (click)="enterRoom()"
             pButton
             label="Entrar"
             icon="pi pi-play"
