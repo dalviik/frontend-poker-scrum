@@ -1,7 +1,7 @@
 <div class="p-grid">
     <div
         class="p-col-12"
-        style="margin-top: 2em;"
+        style="margin-top: 1em;"
     >
 
         <h2>Game [Id]</h2>
@@ -11,7 +11,7 @@
 <br>
 <div class="container p-grid">
 
-    <div class="p-col-12 p-sm-offset-1  p-md-offset-2 p-sm-10 p-md-8 p-grid">
+    <div class="p-col-10 p-offset-1 p-sm-offset-1 p-md-offset-2 p-sm-10 p-md-8 p-grid">
 
         <div class="sectionPregunta p-col-12 p-grid">
             <div class="p-col-12">
@@ -26,7 +26,7 @@
             <div class="p-col-12 p-sm-3">
                 <button
                     pButton
-                    label="Ingresar"
+                    label="Preguntar"
                 ></button>
             </div>
         </div>
@@ -46,7 +46,7 @@
                 <img
                     src="../../../assets/img/black-jack-poker-svgrepo-com.svg"
                     alt
-                    style="height: 230px; "
+                    style="height: 200px; "
                 >
             </div>
         </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="sectionCardsPlayers p-col-12 p-grid">
             <div
-                class="p-col-4 p-sm-3 p-md-2"
+                class="p-col-4 p-sm-3"
                 *ngFor="let item of players"
             >
                 <div class="cardPlayer">
@@ -73,5 +73,48 @@
             </div>
 
         </div>
+
+        <div class="p-col-12 p-grid p-justify-center">
+            <button
+                pButton
+                class="p-button-success p-button-lg p-button-raised p-button-rounded"
+                icon="pi pi-angle-double-up"
+                label="VOTAR"
+                (click)="modalFiboCards =true"
+            >
+            </button>
+        </div>
+
+        <p-dialog
+            header="Votar"
+            [(visible)]="modalFiboCards"
+        >
+        <br>
+            <div class="sectionFiboCards p-col-12 p-grid">
+                <div
+                    class="p-col-4 p-sm-3 p-md-2"
+                    *ngFor="let item of fiboCards"
+                >
+                    <div class="cardPlayer">
+                        <div class="p-col-12">
+                            <h1 style="text-align: center;">{{item}}</h1>
+                        </div>
+                        <div class="p-grid p-justify-center">
+                            <button
+                                pButton
+                                label="Elegir"
+                                class="p-button-sm"                                
+                            >
+
+                            </button>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+
+            </div>
+        </p-dialog>
+
     </div>
 </div>
