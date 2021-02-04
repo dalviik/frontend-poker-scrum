@@ -54,7 +54,8 @@
                 disabled
             >
             <button
-                (click)="copyCode()"
+                              
+                ngxClipboard [cbContent]="codeRoom"
                 pButton
                 icon="pi pi-copy"
                 pTooltip="Copiar al portapapeles"

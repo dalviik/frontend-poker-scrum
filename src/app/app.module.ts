@@ -16,6 +16,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import {TooltipModule} from 'primeng/tooltip';
 import { PlayerGameComponent } from './pages/player-game/player-game.component';
+import { ClipboardModule } from 'ngx-clipboard';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,8 @@ import { PlayerGameComponent } from './pages/player-game/player-game.component';
     BrowserAnimationsModule,
     InputTextModule,
     DialogModule,
-    TooltipModule
+    TooltipModule,
+    ClipboardModule
     
   ],
   providers: [],
