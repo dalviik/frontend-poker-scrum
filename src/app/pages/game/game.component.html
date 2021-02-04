@@ -1,12 +1,25 @@
-<div class="p-grid">
+<div class="p-grid p-align-center">
     <div
         class="p-col-12"
         style="margin-top: 1em;"
     >
 
-        <h2>Game [Id]</h2>
+        <div class="p-grid p-align-center">
+            <a routerLink="/home">
+
+                <button
+                    pButton
+                    icon="pi pi-arrow-left"
+                    style="margin-left: 8px; margin-right: 8px;"
+                >
+
+                </button>
+            </a>
+            <h2>Game [Id]</h2>
+        </div>
         <hr>
     </div>
+
 </div>
 <br>
 <div class="container p-grid">
@@ -38,6 +51,15 @@
         <!-- <div class="p-col-12 p-sm-1 p-md-2">
       x
     </div> -->
+        <div class="p-col-12 p-grid p-justify-end">
+            <button
+                pButton
+                label="Actualizar"
+                icon="pi pi-refresh"
+            >
+
+            </button>
+        </div>
         <div class="sectionResult p-col-12 p-grid">
             <div class="p-col-12">
                 <h2 style="text-align: center;">AVG: 14</h2>
@@ -50,13 +72,19 @@
                 >
             </div>
         </div>
-        <div class="p-col-12 p-grid p-justify-end">
+
+        <div
+            class="p-col-12 p-grid p-justify-center"
+            style="margin-top: 10px;margin-bottom: 30px;"
+        >
             <button
                 pButton
-                label="Actualizar"
-                icon="pi pi-refresh"
+                class="p-button-success p-button-lg p-button-raised p-button-rounded"
+                icon="pi pi-angle-double-up"
+                label="VOTAR"
+                (click)="modalFiboCards =true"
+                style="font-weight: 400;"
             >
-
             </button>
         </div>
         <div class="sectionCardsPlayers p-col-12 p-grid">
@@ -74,22 +102,11 @@
 
         </div>
 
-        <div class="p-col-12 p-grid p-justify-center">
-            <button
-                pButton
-                class="p-button-success p-button-lg p-button-raised p-button-rounded"
-                icon="pi pi-angle-double-up"
-                label="VOTAR"
-                (click)="modalFiboCards =true"
-            >
-            </button>
-        </div>
-
         <p-dialog
             header="Votar"
             [(visible)]="modalFiboCards"
         >
-        <br>
+            <br>
             <div class="sectionFiboCards p-col-12 p-grid">
                 <div
                     class="p-col-4 p-sm-3 p-md-2"
@@ -103,7 +120,7 @@
                             <button
                                 pButton
                                 label="Elegir"
-                                class="p-button-sm"                                
+                                class="p-button-sm"
                             >
 
                             </button>
@@ -117,4 +134,5 @@
         </p-dialog>
 
     </div>
+    <div class="p-col-12" style="height: 200px;"></div>
 </div>

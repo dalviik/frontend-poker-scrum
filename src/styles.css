@@ -24,7 +24,9 @@ body {
 
 }
 
-
+a{
+  text-decoration: none;
+}
 .cardPlayer {
   border-radius: 8px;
   border: 1px solid gray;
