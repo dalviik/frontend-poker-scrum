@@ -1,1 +1,77 @@
-<p>game works!</p>
+<div class="p-grid">
+    <div
+        class="p-col-12"
+        style="margin-top: 2em;"
+    >
+
+        <h2>Game [Id]</h2>
+        <hr>
+    </div>
+</div>
+<br>
+<div class="container p-grid">
+
+    <div class="p-col-12 p-sm-offset-1  p-md-offset-2 p-sm-10 p-md-8 p-grid">
+
+        <div class="sectionPregunta p-col-12 p-grid">
+            <div class="p-col-12">
+                Ingresa la pregunta para poner sobre la mesa
+            </div>
+            <div class="p-col-12 p-sm-7 p-fluid">
+                <input
+                    type="text"
+                    pInputText
+                >
+            </div>
+            <div class="p-col-12 p-sm-3">
+                <button
+                    pButton
+                    label="Ingresar"
+                ></button>
+            </div>
+        </div>
+
+        <div class="sectionText p-col-12 p-grid p-justify-center">
+            <h2 style="text-align: center;">Login con detalles?</h2>
+        </div>
+
+        <!-- <div class="p-col-12 p-sm-1 p-md-2">
+      x
+    </div> -->
+        <div class="sectionResult p-col-12 p-grid">
+            <div class="p-col-12">
+                <h2 style="text-align: center;">AVG: 14</h2>
+            </div>
+            <div class="imgTable p-col-12 p-grid p-justify-center">
+                <img
+                    src="../../../assets/img/black-jack-poker-svgrepo-com.svg"
+                    alt
+                    style="height: 230px; "
+                >
+            </div>
+        </div>
+        <div class="p-col-12 p-grid p-justify-end">
+            <button
+                pButton
+                label="Actualizar"
+                icon="pi pi-refresh"
+            >
+
+            </button>
+        </div>
+        <div class="sectionCardsPlayers p-col-12 p-grid">
+            <div
+                class="p-col-4 p-sm-3 p-md-2"
+                *ngFor="let item of players"
+            >
+                <div class="cardPlayer">
+                    <div class="p-col-12">
+                        <h1 style="text-align: center;">135</h1>
+                    </div>
+                    <div class="p-col-12">Name Player</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -23,3 +23,20 @@ body {
   transform: rotateY(360deg);
 
 }
+
+
+.cardPlayer {
+  border-radius: 8px;
+  border: 1px solid gray;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  background-color: #f8feff;
+}
+
+.cardPlayer:hover {
+  border-radius: 8px;
+  border: 1px solid gray;
+  -webkit-transform: scale(1.1) rotate(3deg);
+  transform: scale(1.1) rotate(3deg);
+
+}

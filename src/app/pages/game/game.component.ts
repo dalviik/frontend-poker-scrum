@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
   constructor() { }
-
+  players = ['1','2','3'];
   ngOnInit(): void {
   }
 
