@@ -10,7 +10,8 @@
         class="pokerCardsIcon animated fadeIn"
         src="../../../assets/img/poker-casino-svgrepo-com.svg"
         alt
-        style="max-width: 40%;"
+        style="width: 340px; margin-left: 1em; max-width: 50%;"
+        (click)="modalSearchRoom=true"
     >
 </div>
 <br>
@@ -19,40 +20,64 @@
 <div class="p-grid p-justify-center p-align-center ">
 
     <button
-        (click)="newGame()"
-        class="p-button-success p-button-outlined p-button-raised p-button-lg animated fadeInUp delay-1s"
         pButton
+        (click)="modalCreateRoom = true"
+        class="p-button-success p-button-outlined p-button-raised p-button-lg animated fadeInUp delay-1s"
         icon="pi pi-plus"
         type="button"
         label="Crear Sala"
+        style="margin: 1em;"
     ></button>
 
     <button
-        class="p-button-lg p-button-outlined p-button-raised animated fadeInUp delay-1s"
-        (click)="enterGame()"
         pButton
+        class="p-button-lg p-button-outlined p-button-raised animated fadeInUp delay-1s"
+        (click)="modalSearchRoom = true"
         type="button"
         icon="pi pi-play"
         label="Ingresar"
-        style="margin-left: 2em;"
+        style="margin: 1em;"
     ></button>
 </div>
 <p-dialog
     header="Crear Sala"
-    [(visible)]="modalNewGame"
+    [(visible)]="modalCreateRoom"
     [modal]="true"
 >
-    Se ha creado la nueva sala
-    <div class="p-input-filled">
-        <input
-            type="text"
-            pInputText
+    <div class="p-col-12">
+        Se ha creado la nueva mesa
+        <div class="p-input-filled">
+            <input
+                type="text"
+                pInputText
+                [(ngModel)]="codigoSala"
+                disabled
+            >
+            <button
+                (click)="copyCode()"
+                pButton
+                icon="pi pi-copy"
+                pTooltip="Copiar al portapapeles"
+                tooltipPosition="top"
+            >
+            </button>
+        </div>
+
+    </div>
+    <div class="p-col-12 p-grid p-justify-center">
+        <button
+            (click)="createRoom()"
+            pButton
+            label="Entrar"
+            icon="pi pi-play"
         >
+        </button>
     </div>
 </p-dialog>
 <p-dialog
     header="Ingresar Sala"
-    [(visible)]="modalEnterGame"
+    [(visible)]="modalSearchRoom"
+    [modal]="true"
 >
     <div class="p-col-12 p-grid">Ingrese el codigo de la sala</div>
     <div class="p-col-12 p-grid">
@@ -65,12 +90,11 @@
     </div>
     <div class="p-col-12 p-grid p-justify-center">
         <button
-            (click)="searchTable()"
+            (click)="searchRoom()"
             pButton
             label="Buscar"
             icon="pi pi-search"
         >
-
         </button>
     </div>
 

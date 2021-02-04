@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
+import {TooltipModule} from 'primeng/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { DialogModule } from 'primeng/dialog';
     ButtonModule,
     BrowserAnimationsModule,
     InputTextModule,
-    DialogModule
+    DialogModule,
+    TooltipModule
     
   ],
   providers: [],

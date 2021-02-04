@@ -9,27 +9,22 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
 
-  modalNewGame: boolean = false;
-  modalEnterGame: boolean = false;
+  modalCreateRoom: boolean = false;
+  modalSearchRoom: boolean = false;
 
-  codigoSala = 0;
+  codigoSala = 1110;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  newGame() {
-    this.modalNewGame = true;
-  }
-
-  enterGame() {
-    this.modalEnterGame = true;
-  }
-
-  searchTable() {
-   
+  createRoom() {
     
+  }
+ 
+  searchRoom() {
+       
     Swal.fire({
       icon: 'success',
       title: 'SALA ENCONTRADA',
@@ -37,6 +32,10 @@ export class HomeComponent implements OnInit {
     }).then((resp) => {
       this.router.navigate(['/game',1]);
     })
+  }
+
+  copyCode(){
+
   }
 
 
