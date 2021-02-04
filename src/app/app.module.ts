@@ -30,6 +30,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ButtonModule,
     BrowserAnimationsModule,
     InputTextModule,

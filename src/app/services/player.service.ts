@@ -9,9 +9,9 @@ export class PlayerService {
 
   constructor(private http: HttpClient) { }
 
-  ingresarRoom(idRoom: string) {
-    let url = URL_SERVICIOS + '/room/' + idRoom;
-    return this.http.get(url);
+  ingresarRoom(player: Object) {
+    let url = URL_SERVICIOS + '/player/';
+    return this.http.post(url, player);
   }
 
   actualizarVoto(idPlayer: number, player: Object) {

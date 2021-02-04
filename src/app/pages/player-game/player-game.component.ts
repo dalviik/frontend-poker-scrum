@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerGameComponent implements OnInit {
 
+  playerName = '';
+
   players = ['Erick', 'Stan', 'Kyle', 'Kenny'];
   modalFiboCards = false;
   fiboCards = [0, 1, 1, 2, 3, 5, 7, 8, 13, 21, 34, 55, 89, 144, 233, 377];
@@ -18,6 +20,7 @@ export class PlayerGameComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.playerName = localStorage.getItem('playerName');
   }
 
   refresh (){
