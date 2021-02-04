@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { RoomService } from '../../services/room.service';
 
 @Component({
   selector: 'app-game',
@@ -16,7 +17,8 @@ export class GameComponent implements OnInit {
   avgQuestion = 0;
   voteValue = 0;
 
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(private _roomService: RoomService,
+    private activatedRoute: ActivatedRoute,
     private router: Router) {
 
     activatedRoute.params.forEach((params: Params) => {
@@ -34,6 +36,24 @@ export class GameComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  setQuestion() {
+    this.bannerQuestion = this.question;
+
+
+    let roomObject = {
+      question: this.question
+    }
+
+    this._roomService.actualizarPregunta(this.codeRoom, roomObject)
+      .subscribe((resp: any) => {
+        console.log('Respuesta de actualizar pregunta');
+        console.log(resp);
+        
+        
+      })
+
   }
 
   refresh() {
