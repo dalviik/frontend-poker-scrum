@@ -10,9 +10,12 @@ export class HomeComponent implements OnInit {
 
 
   modalCreateRoom: boolean = false;
-  modalSearchRoom: boolean = false;
+  modalSearchRoom: boolean = true;
 
-  codigoSala = 1110;
+
+  formSend = false;
+  codeRoom = '';
+  playerName = '';
 
   constructor(private router: Router) { }
 
@@ -20,21 +23,25 @@ export class HomeComponent implements OnInit {
   }
 
   createRoom() {
-    
+
   }
- 
+
   searchRoom() {
-       
+    this.formSend = true;
+if(this.codeRoom.length<1){
+  return;
+}
+
     Swal.fire({
       icon: 'success',
       title: 'SALA ENCONTRADA',
       text: 'No olvides tu cara de poker ;)'
     }).then((resp) => {
-      this.router.navigate(['/game',1]);
+      this.router.navigate(['/game', 1]);
     })
   }
 
-  copyCode(){
+  copyCode() {
 
   }
 
