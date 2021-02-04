@@ -30,22 +30,24 @@
             <div class="p-col-12">
                 Ingresa la pregunta para poner sobre la mesa
             </div>
-            <div class="p-col-12 p-sm-7 p-fluid">
+            <div class="p-col-12 p-sm-9 p-fluid">
                 <input
                     type="text"
                     pInputText
+                    [(ngModel)]="question"
                 >
             </div>
-            <div class="p-col-12 p-sm-3">
+            <div class="p-col-12 p-sm-2">
                 <button
                     pButton
                     label="Preguntar"
+                    (click)="bannerQuestion = question"
                 ></button>
             </div>
         </div>
 
         <div class="sectionText p-col-12 p-grid p-justify-center">
-            <h2 style="text-align: center;">Login con detalles?</h2>
+            <h2 style="text-align: center;">{{bannerQuestion}}</h2>
         </div>
 
         <!-- <div class="p-col-12 p-sm-1 p-md-2">
@@ -56,13 +58,14 @@
                 pButton
                 label="Actualizar"
                 icon="pi pi-refresh"
+                (click)="refresh()"
             >
 
             </button>
         </div>
         <div class="sectionResult p-col-12 p-grid">
             <div class="p-col-12">
-                <h2 style="text-align: center;">AVG: 14</h2>
+                <h2 style="text-align: center;">AVG: {{ avgQuestion }}</h2>
             </div>
             <div class="imgTable p-col-12 p-grid p-justify-center">
                 <img
@@ -89,14 +92,14 @@
         </div>
         <div class="sectionCardsPlayers p-col-12 p-grid">
             <div
-                class="p-col-4 p-sm-3"
-                *ngFor="let item of players"
+                class="p-col-4 p-sm-3 animated fadeInUp"
+                *ngFor="let player of players"
             >
-                <div class="cardPlayer">
-                    <div class="p-col-12">
-                        <h1 style="text-align: center;">135</h1>
+                <div class=" cardPlayer">
+                    <div class="p-col-12 ">
+                        <h1 style="text-align: center;">-</h1>
                     </div>
-                    <div class="p-col-12">Name Player</div>
+                    <div class="p-col-12">{{player}}</div>
                 </div>
             </div>
 
@@ -121,6 +124,7 @@
                                 pButton
                                 label="Elegir"
                                 class="p-button-sm"
+                                (click)="pickCard(item)"
                             >
 
                             </button>
@@ -134,5 +138,8 @@
         </p-dialog>
 
     </div>
-    <div class="p-col-12" style="height: 200px;"></div>
+    <div
+        class="p-col-12"
+        style="height: 200px;"
+    ></div>
 </div>

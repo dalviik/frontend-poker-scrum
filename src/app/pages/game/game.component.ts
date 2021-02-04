@@ -8,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class GameComponent implements OnInit {
 
   constructor() { }
-  players = ['Erick','Stan','Kyle','Kenny'];
+  players = ['Erick', 'Stan', 'Kyle', 'Kenny'];
   modalFiboCards = false;
-  fiboCards = [0,1,1,2,3,5,7,8,13,21,34,55,89,144,233,377];
+  fiboCards = [0, 1, 1, 2, 3, 5, 7, 8, 13, 21, 34, 55, 89, 144, 233, 377];
+  question = '';
+  bannerQuestion = '-';
+  avgQuestion = 0;
+  voteValue = 0;
+
   ngOnInit(): void {
+  }
+
+  refresh (){
+    this.players =[];
+    setTimeout(() => {
+      this.players = ['Erick', 'Stan', 'Kyle', 'Kenny'];
+    }, 3000);
+  }
+
+  pickCard(vote: number) {
+    this.modalFiboCards = false;
+    this.voteValue = vote;
   }
 
 }
