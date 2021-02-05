@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { GameComponent } from './pages/game/game.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PlayerGameComponent } from './pages/player-game/player-game.component';
@@ -11,8 +11,13 @@ const routes: Routes = [
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
+const routerOptions: ExtraOptions = {
+  useHash: true,
+  scrollPositionRestoration: 'enabled',
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

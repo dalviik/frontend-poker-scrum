@@ -17,7 +17,7 @@ export class PlayerGameComponent implements OnInit {
   playerName = '';
 
   players = [];
-  modalFiboCards = true;
+  modalFiboCards = false;
   fiboCards = [1, 2, 3, 5, 7, 8, 13, 21, 34, 55, 89, 144, 233, 377];
 
   bannerQuestion = '-';
