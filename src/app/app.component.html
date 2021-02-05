@@ -4,7 +4,6 @@
         #myAudio
         src="../assets/audio/pokerFaceErick.mp3"
     >
-        
         Your browser does not support the audio element.
     </audio>
 
@@ -14,6 +13,7 @@
         class="p-button-rounded"
         [class.p-button-outlined]="!statusAudio"
         icon="pi pi-play"
+        style="margin: 4px;"
     ></button>
 
     <button
@@ -22,6 +22,7 @@
         class="p-button-rounded p-button-secondary"
         [class.p-button-outlined]="statusAudio"
         icon="pi pi-volume-off"
+        style="margin: 4px;"
     ></button>
 </div>
 <router-outlet></router-outlet>

@@ -39,6 +39,15 @@
         style="margin: 1em;"
     ></button>
 </div>
+<br>
+<div class="p-col-10 p-offset-1 p-sm-offset-1 p-md-offset-2 p-sm-10 p-md-8 p-grid">
+    <div class="p-col-12 p-grid p-justify-center">
+
+        <p style="text-align: center;">
+            Crea una sala para hacer una pregunta, comparte la sala, y ve lo que opinan los demás.
+        </p>
+    </div>
+</div>
 <p-dialog
     header="Crear Sala"
     [(visible)]="modalCreateRoom"
@@ -54,7 +63,8 @@
                 disabled
             >
             <button
-                ngxClipboard [cbContent]="urlPlay"
+                ngxClipboard
+                [cbContent]="urlPlay"
                 pButton
                 icon="pi pi-copy"
                 pTooltip="Copiar al portapapeles"
