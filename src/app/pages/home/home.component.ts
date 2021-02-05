@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
     private router: Router) {
     activatedRoute.params.forEach((params: Params) => {
       if (params.id !== undefined) {
-        console.log('ID de params' + params.id);
         this.codeRoom = params.id;
       }
     });
@@ -40,7 +39,6 @@ export class HomeComponent implements OnInit {
     let roomObject = {};
     this._roomService.crearRoom(roomObject).
       subscribe((resp: any) => {
-        console.log('Respuesta de la creacion de la sala');
         this.codeRoom = resp.room.idRoom;
         this.urlPlay = encodeURI(document.location.protocol + '//' + document.location.host + '/#/game/play/' + this.codeRoom);
 
@@ -49,10 +47,15 @@ export class HomeComponent implements OnInit {
 
   }
   enterRoom() {
-    this.router.navigate(['/game/c/', this.codeRoom]);
+    if (this.codeRoom != '') {
+      this.router.navigate(['/game/c/', this.codeRoom]);
+    }
   }
   searchRoom() {
     this.formSend = true;
+    if (this.playerName.length < 1) {
+      return;
+    }
     if (this.codeRoom.length < 1) {
       return;
     }
@@ -62,8 +65,6 @@ export class HomeComponent implements OnInit {
     }
     this._playerService.ingresarRoom(playerObj)
       .subscribe((resp: any) => {
-        console.log(resp);
-
 
         localStorage.setItem('playerName', this.playerName);
         localStorage.setItem('idPlayer', resp.player.idPlayer);
@@ -78,7 +79,7 @@ export class HomeComponent implements OnInit {
       }, (err: any) => {
         Swal.fire({
           icon: 'error',
-          title: 'NO SE ENCONTRO SALA',
+          title: 'NO SE ENCONTÓ LA SALA',
           text: ''
         })
       })

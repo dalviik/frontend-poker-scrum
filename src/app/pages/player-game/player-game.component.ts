@@ -23,7 +23,7 @@ export class PlayerGameComponent implements OnInit {
   bannerQuestion = '-';
   avgQuestion = 0;
   voteValue = 0;
-
+  modelNamePlayer = false;
   constructor(private _roomService: RoomService,
     private _playerService: PlayerService,
     private activatedRoute: ActivatedRoute,
@@ -38,8 +38,20 @@ export class PlayerGameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.playerName = localStorage.getItem('playerName');
-    this.idPlayer = localStorage.getItem('idPlayer');
+    try {
+      if (localStorage.getItem('playerName'))
+        this.playerName = localStorage.getItem('playerName');
+      if (localStorage.getItem('idPlayer'))
+        this.idPlayer = localStorage.getItem('idPlayer');
+    } catch (error) {
+
+    }
+    if (!this.playerName) {
+      this.modelNamePlayer = true;
+    }
+
+
+
     this.refresh();
   }
 
@@ -68,16 +80,27 @@ export class PlayerGameComponent implements OnInit {
 
   vote() {
     this.modalFiboCards = false;
-    console.log('LLega ' + this.voteValue);
     let playerObj = {
       score: this.voteValue
     }
     this._playerService.actualizarVoto(this.idPlayer, playerObj).
       subscribe((resp: any) => {
-        console.log('Se ha actualizado correctamente ');
-        console.log(resp);
         this.refresh();
       })
+  }
+  registerUser() {
+    let playerObj = {
+      idRoom: this.codeRoom,
+      playerName: this.playerName
+    }
+
+    this._playerService.ingresarRoom(playerObj).subscribe((resp: any) => {
+      localStorage.setItem('playerName', this.playerName);
+      localStorage.setItem('idPlayer', resp.player.idPlayer);
+
+      this.modelNamePlayer = false;
+      this.refresh();
+    })
   }
 
 }

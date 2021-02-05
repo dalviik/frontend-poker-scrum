@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RoomService } from '../../services/room.service';
-
+import { ClipboardService } from 'ngx-clipboard'
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -14,10 +14,12 @@ export class GameComponent implements OnInit {
   fiboCards = [0, 1, 1, 2, 3, 5, 7, 8, 13, 21, 34, 55, 89, 144, 233, 377];
   question = '';
   bannerQuestion = '-';
-  avgQuestion = 110;
+  avgQuestion = 0;
+  urlPlay = '';
 
   constructor(private _roomService: RoomService,
     private activatedRoute: ActivatedRoute,
+    private _clipboardService: ClipboardService,
     private router: Router) {
 
     activatedRoute.params.forEach((params: Params) => {
@@ -29,6 +31,12 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.refresh();
+  }
+
+  copyURLRoom() {
+
+    this.urlPlay = '' + encodeURI(document.location.protocol + '//' + document.location.host + '/#/game/play/' + this.codeRoom);
+    this._clipboardService.copy(this.urlPlay)
   }
 
   setQuestion() {

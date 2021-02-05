@@ -16,16 +16,14 @@
                 </button>
             </a>
             <h2 style="margin-right: 3em;">Room {{codeRoom}}</h2>
-            
+
             <button
-                ngxClipboard
-                [cbContent]="codeRoom"
+                (click)="copyURLRoom()"
                 pButton
                 class="p-button-outlined"
                 icon="pi pi-copy"
                 pTooltip="Copiar al portapapeles"
                 tooltipPosition="top"
-                
             >
             </button>
         </div>
