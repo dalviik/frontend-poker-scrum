@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
         
         
       localStorage.setItem('playerName',this.playerName);
-      localStorage.setItem('playerName',resp.player.playerName);
+      localStorage.setItem('idPlayer',resp.player.idPlayer);
       
         Swal.fire({
           icon: 'success',

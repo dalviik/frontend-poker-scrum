@@ -15,7 +15,19 @@
 
                 </button>
             </a>
-            <h2>Room {{codeRoom}}</h2>
+            <h2 style="margin-right: 3em;">Room {{codeRoom}}</h2>
+            
+            <button
+                ngxClipboard
+                [cbContent]="codeRoom"
+                pButton
+                class="p-button-outlined"
+                icon="pi pi-copy"
+                pTooltip="Copiar al portapapeles"
+                tooltipPosition="top"
+                
+            >
+            </button>
         </div>
         <hr>
     </div>
@@ -66,7 +78,7 @@
         <div class="sectionResult p-col-12 p-grid">
             <div class="p-col-12">
                 <h2 style="text-align: center;">
-                    <span style="font-size: 0.85em;">AVG: </span>
+                    <span style="font-size: 0.85em;">AVG:</span>
                     <span style="font-size: 1.4em;">{{ avgQuestion }}</span>
                 </h2>
             </div>
@@ -105,8 +117,6 @@
             </div>
 
         </div>
-
-       
 
     </div>
     <div

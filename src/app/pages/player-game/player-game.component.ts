@@ -10,11 +10,14 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class PlayerGameComponent implements OnInit {
 
-  codeRoom = '';
-  playerName = '';
-  players = [];
 
-  modalFiboCards = false;
+  codeRoom = '';
+
+  idPlayer = '';
+  playerName = '';
+
+  players = [];
+  modalFiboCards = true;
   fiboCards = [0, 1, 1, 2, 3, 5, 7, 8, 13, 21, 34, 55, 89, 144, 233, 377];
 
   bannerQuestion = '-';
@@ -36,6 +39,7 @@ export class PlayerGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.playerName = localStorage.getItem('playerName');
+    this.idPlayer = localStorage.getItem('idPlayer');
     this.refresh();
   }
 
@@ -65,9 +69,18 @@ export class PlayerGameComponent implements OnInit {
       })
   }
 
-  pickCard(vote: number) {
+  vote() {
     this.modalFiboCards = false;
-    this.voteValue = vote;
+    console.log('LLega ' + this.voteValue);
+    let playerObj = {
+      score: this.voteValue
+    }
+    this._playerService.actualizarVoto(this.idPlayer, playerObj).
+      subscribe((resp: any) => {
+        console.log('Se ha actualizado correctamente ');
+        console.log(resp);
+        this.refresh();
+      })
   }
 
 }

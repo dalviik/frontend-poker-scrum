@@ -14,9 +14,9 @@ export class PlayerService {
     return this.http.post(url, player);
   }
 
-  actualizarVoto(idPlayer: number, player: Object) {
-    let url = URL_SERVICIOS + '/room/' + idPlayer;
-    return this.http.post(url, player);
+  actualizarVoto(idPlayer: string, player: Object) {
+    let url = URL_SERVICIOS + '/player/' + idPlayer;
+    return this.http.put(url, player);
   }
 }
 
