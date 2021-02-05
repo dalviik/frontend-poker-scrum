@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 export class AppComponent {
   @ViewChild('myAudio') myAudio: ElementRef;
   title = 'pokerScrum';
-  statusAudio = true;
+  statusAudio = false;
   mute() {
     this.myAudio.nativeElement.pause();
     this.statusAudio = false;

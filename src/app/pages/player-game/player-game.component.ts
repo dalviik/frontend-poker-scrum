@@ -96,9 +96,14 @@ export class PlayerGameComponent implements OnInit {
     }
 
     this._playerService.ingresarRoom(playerObj).subscribe((resp: any) => {
+      console.log('Ingresar ROOM');
+      console.log(resp);
+      
+      
       localStorage.setItem('playerName', this.playerName);
       localStorage.setItem('idPlayer', resp.player.idPlayer);
-
+      this.idPlayer = resp.player.idPlayer;
+      
       this.modelNamePlayer = false;
       this.refresh();
     })
