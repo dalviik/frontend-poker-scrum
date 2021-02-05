@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend-poker-scrum';
+  @ViewChild('myAudio') myAudio: ElementRef;
+  title = 'pokerScrum';
+  statusAudio = true;
+  mute() {
+    this.myAudio.nativeElement.pause();
+    this.statusAudio = false;
+  }
+  unmute() {
+    this.myAudio.nativeElement.play();
+    this.statusAudio = true;
+  }
 }
