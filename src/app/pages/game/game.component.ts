@@ -9,12 +9,12 @@ import { RoomService } from '../../services/room.service';
 })
 export class GameComponent implements OnInit {
   codeRoom = '';
-  players = ['Erick', 'Stan', 'Kyle', 'Kenny'];
+  players = [];
   modalFiboCards = false;
   fiboCards = [0, 1, 1, 2, 3, 5, 7, 8, 13, 21, 34, 55, 89, 144, 233, 377];
   question = '';
   bannerQuestion = '-';
-  avgQuestion = 0;
+  avgQuestion = 110;
   voteValue = 0;
 
   constructor(private _roomService: RoomService,
@@ -26,8 +26,6 @@ export class GameComponent implements OnInit {
         console.log('ID de params' + params.id);
         this.codeRoom = params.id;
 
-      } else {
-        // this.isLoading = false;
       }
     });
 
@@ -36,11 +34,11 @@ export class GameComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.refresh();
   }
 
   setQuestion() {
     this.bannerQuestion = this.question;
-
 
     let roomObject = {
       question: this.question
@@ -50,17 +48,29 @@ export class GameComponent implements OnInit {
       .subscribe((resp: any) => {
         console.log('Respuesta de actualizar pregunta');
         console.log(resp);
-        
-        
       })
 
   }
 
   refresh() {
+
+    this.avgQuestion = 0;
     this.players = [];
-    setTimeout(() => {
-      this.players = ['Erick', 'Stan', 'Kyle', 'Kenny'];
-    }, 500);
+    console.log('El codigo de la room es ' + this.codeRoom);
+
+    this._roomService.obtenerPlayers(this.codeRoom)
+      .subscribe((resp: any) => {
+        console.log('La respuesta es ' + resp.players);
+        this.players = resp.players;
+
+        for (const player of this.players) {
+          this.avgQuestion += player.score;
+        }
+
+        this.avgQuestion = this.avgQuestion / this.players.length;
+
+      })
+
   }
 
   pickCard(vote: number) {

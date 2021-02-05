@@ -65,7 +65,10 @@
         </div>
         <div class="sectionResult p-col-12 p-grid">
             <div class="p-col-12">
-                <h2 style="text-align: center;">AVG: {{ avgQuestion }}</h2>
+                <h2 style="text-align: center;">
+                    <span style="font-size: 0.85em;">AVG: </span>
+                    <span style="font-size: 1.4em;">{{ avgQuestion }}</span>
+                </h2>
             </div>
             <div class="imgTable p-col-12 p-grid p-justify-center">
                 <img
@@ -76,20 +79,6 @@
             </div>
         </div>
 
-        <!-- <div
-            class="p-col-12 p-grid p-justify-center"
-            style="margin-top: 10px;margin-bottom: 30px;"
-        >
-            <button
-                pButton
-                class="p-button-success p-button-lg p-button-raised p-button-rounded"
-                icon="pi pi-angle-double-up"
-                label="VOTAR"
-                (click)="modalFiboCards =true"
-                style="font-weight: 400;"
-            >
-            </button>
-        </div> -->
         <div class="sectionCardsPlayers p-col-12 p-grid">
             <div
                 class="p-col-4 p-sm-3 animated fadeInUp"
@@ -97,9 +86,21 @@
             >
                 <div class=" cardPlayer">
                     <div class="p-col-12 ">
-                        <h1 style="text-align: center;">-</h1>
+                        <h1
+                            style="text-align: center;"
+                            *ngIf="!player.score"
+                        >
+                            -
+                        </h1>
+                        <h1
+                            style="text-align: center;"
+                            *ngIf="player?.score!=''"
+                        >
+                            {{player['score']}}
+                        </h1>
+
                     </div>
-                    <div class="p-col-12">{{player}}</div>
+                    <div class="p-col-12">{{player['playerName']}}</div>
                 </div>
             </div>
 
