@@ -72,6 +72,7 @@ export class GameComponent implements OnInit {
         }
 
         this.avgQuestion = this.avgQuestion / this.players.length;
+        this.avgQuestion = Math.round(this.avgQuestion * 100) / 100
 
       })
 
