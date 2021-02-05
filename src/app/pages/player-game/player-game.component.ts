@@ -79,14 +79,15 @@ export class PlayerGameComponent implements OnInit {
   }
 
   vote() {
-    this.modalFiboCards = false;
     let playerObj = {
       score: this.voteValue
     }
     this._playerService.actualizarVoto(this.idPlayer, playerObj).
       subscribe((resp: any) => {
+        this.modalFiboCards = false;
         this.refresh();
       })
+
   }
   registerUser() {
     let playerObj = {
