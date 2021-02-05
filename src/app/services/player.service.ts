@@ -9,13 +9,13 @@ export class PlayerService {
 
   constructor(private http: HttpClient) { }
 
-  ingresarRoom(player: Object) {
-    let url = URL_SERVICIOS + '/player/';
+  enterRoom(player: Object) {
+    let url = URL_SERVICIOS + '/player/enterRoom/';
     return this.http.post(url, player);
   }
 
-  actualizarVoto(idPlayer: string, player: Object) {
-    let url = URL_SERVICIOS + '/player/' + idPlayer;
+  updateScore(idPlayer: string, player: Object) {
+    let url = URL_SERVICIOS + '/player/updateScore/' + idPlayer;
     return this.http.put(url, player);
   }
 }

@@ -59,7 +59,7 @@ export class PlayerGameComponent implements OnInit {
     this.avgQuestion = 0;
     this.players = [];
 
-    this._roomService.obtenerPlayers(this.codeRoom)
+    this._roomService.getRoom(this.codeRoom)
       .subscribe((resp: any) => {
 
         this.bannerQuestion = resp.question;
@@ -82,7 +82,7 @@ export class PlayerGameComponent implements OnInit {
     let playerObj = {
       score: this.voteValue
     }
-    this._playerService.actualizarVoto(this.idPlayer, playerObj).
+    this._playerService.updateScore(this.idPlayer, playerObj).
       subscribe((resp: any) => {
         this.modalFiboCards = false;
         this.refresh();
@@ -95,7 +95,7 @@ export class PlayerGameComponent implements OnInit {
       playerName: this.playerName
     }
 
-    this._playerService.ingresarRoom(playerObj).subscribe((resp: any) => {
+    this._playerService.enterRoom(playerObj).subscribe((resp: any) => {
       
       console.log(resp);
       

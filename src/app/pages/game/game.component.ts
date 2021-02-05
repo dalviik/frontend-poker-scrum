@@ -46,7 +46,7 @@ export class GameComponent implements OnInit {
       question: this.question
     }
 
-    this._roomService.actualizarPregunta(this.codeRoom, roomObject)
+    this._roomService.updateQuestion(this.codeRoom, roomObject)
       .subscribe((resp: any) => {
         console.log('Respuesta de actualizar pregunta');
         console.log(resp);
@@ -59,7 +59,7 @@ export class GameComponent implements OnInit {
     this.avgQuestion = 0;
     this.players = [];
 
-    this._roomService.obtenerPlayers(this.codeRoom)
+    this._roomService.getRoom(this.codeRoom)
       .subscribe((resp: any) => {
 
         this.bannerQuestion = resp.question;

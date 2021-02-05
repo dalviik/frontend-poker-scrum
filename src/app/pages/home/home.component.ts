@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   createRoom() {
     this.modalCreateRoom = true;
     let roomObject = {};
-    this._roomService.crearRoom(roomObject).
+    this._roomService.createRoom(roomObject).
       subscribe((resp: any) => {
         this.codeRoom = resp.room.idRoom;
         this.urlPlay = encodeURI(document.location.protocol + '//' + document.location.host + '/#/game/play/' + this.codeRoom);
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
       idRoom: this.codeRoom,
       playerName: this.playerName
     }
-    this._playerService.ingresarRoom(playerObj)
+    this._playerService.enterRoom(playerObj)
       .subscribe((resp: any) => {
 
         localStorage.setItem('playerName', this.playerName);

@@ -8,18 +8,18 @@ export class RoomService {
 
   constructor(private http: HttpClient) { }
 
-  crearRoom(room: Object) {
+  createRoom(room: Object) {
     let url = URL_SERVICIOS + '/room';
     return this.http.post(url, room);
   }
 
-  obtenerPlayers(idRoom: string) {
+  getRoom(idRoom: string) {
     let url = URL_SERVICIOS + '/room/' + idRoom;
     return this.http.get(url);
   }
 
-  actualizarPregunta(idRoom: string, room: Object) {
-    let url = URL_SERVICIOS + '/room/' + idRoom;
+  updateQuestion(idRoom: string, room: Object) {
+    let url = URL_SERVICIOS + '/room/updateQuestion/' + idRoom;
     return this.http.put(url, room);
   }
 
