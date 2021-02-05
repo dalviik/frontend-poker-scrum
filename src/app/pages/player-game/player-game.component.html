@@ -101,8 +101,14 @@
         >
             <br>
             <div class="sectionFiboCards p-col-12 p-grid">
-                <div class="p-col-12 p-grid p-justify-center">
-                    <div class="p-col-12 p-grid">Has elegido: {{ voteValue }}</div>
+                <div class="p-col-12 p-grid p-justify-center p-align-center">
+                    <div
+                        class="p-col-12 p-grid p-align-center"
+                       
+                    >
+                        Has elegido:
+                        <strong style="font-size: 1.4em; margin-left: 8px;"  *ngIf="voteValue">{{ voteValue }}</strong>
+                    </div>
                     <div class="p-col-12 p-grid p-justify-center">
                         <button
                             pButton
@@ -122,6 +128,7 @@
                         class="cardPlayer"
                         style="cursor: pointer;"
                         (click)="voteValue=item"
+                        [class.cardSelected]="voteValue==item"
                     >
                         <div class="p-col-12">
                             <h1 style="text-align: center;">{{item}}</h1>

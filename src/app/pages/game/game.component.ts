@@ -52,10 +52,10 @@ export class GameComponent implements OnInit {
     this.avgQuestion = 0;
     this.players = [];
 
-
     this._roomService.obtenerPlayers(this.codeRoom)
       .subscribe((resp: any) => {
 
+        this.bannerQuestion = resp.question;
         this.players = resp.players;
         if (this.players.length < 1) {
           return;
