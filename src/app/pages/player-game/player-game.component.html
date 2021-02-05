@@ -76,9 +76,20 @@
             >
                 <div class=" cardPlayer">
                     <div class="p-col-12 ">
-                        <h1 style="text-align: center;">-</h1>
+                        <h1
+                            style="text-align: center;"
+                            *ngIf="!player.score"
+                        >
+                            -
+                        </h1>
+                        <h1
+                            style="text-align: center;"
+                            *ngIf="player?.score!=''"
+                        >
+                            {{player['score']}}
+                        </h1>
                     </div>
-                    <div class="p-col-12">{{player}}</div>
+                    <div class="p-col-12">{{player['playerName']}}</div>
                 </div>
             </div>
 

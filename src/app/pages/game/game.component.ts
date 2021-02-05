@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
   question = '';
   bannerQuestion = '-';
   avgQuestion = 110;
-  voteValue = 0;
+
 
   constructor(private _roomService: RoomService,
     private activatedRoute: ActivatedRoute,
@@ -23,15 +23,10 @@ export class GameComponent implements OnInit {
 
     activatedRoute.params.forEach((params: Params) => {
       if (params.id !== undefined) {
-        console.log('ID de params' + params.id);
         this.codeRoom = params.id;
-
       }
     });
-
   }
-
-
 
   ngOnInit(): void {
     this.refresh();
@@ -56,13 +51,15 @@ export class GameComponent implements OnInit {
 
     this.avgQuestion = 0;
     this.players = [];
-    console.log('El codigo de la room es ' + this.codeRoom);
+
 
     this._roomService.obtenerPlayers(this.codeRoom)
       .subscribe((resp: any) => {
-        console.log('La respuesta es ' + resp.players);
-        this.players = resp.players;
 
+        this.players = resp.players;
+        if (this.players.length < 1) {
+          return;
+        }
         for (const player of this.players) {
           this.avgQuestion += player.score;
         }
@@ -71,11 +68,6 @@ export class GameComponent implements OnInit {
 
       })
 
-  }
-
-  pickCard(vote: number) {
-    this.modalFiboCards = false;
-    this.voteValue = vote;
   }
 
 }

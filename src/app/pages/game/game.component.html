@@ -106,37 +106,7 @@
 
         </div>
 
-        <p-dialog
-            header="Votar"
-            [(visible)]="modalFiboCards"
-        >
-            <br>
-            <div class="sectionFiboCards p-col-12 p-grid">
-                <div
-                    class="p-col-4 p-sm-3 p-md-2"
-                    *ngFor="let item of fiboCards"
-                >
-                    <div class="cardPlayer">
-                        <div class="p-col-12">
-                            <h1 style="text-align: center;">{{item}}</h1>
-                        </div>
-                        <div class="p-grid p-justify-center">
-                            <button
-                                pButton
-                                label="Elegir"
-                                class="p-button-sm"
-                                (click)="pickCard(item)"
-                            >
-
-                            </button>
-                        </div>
-                        <br>
-                    </div>
-
-                </div>
-
-            </div>
-        </p-dialog>
+       
 
     </div>
     <div
