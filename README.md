@@ -6,6 +6,8 @@ This project has been created with the following technologies
 
 *The backend of this project is located in the following [repository](https://github.com/dalviik/backend-poker-scrum)
 
+You can see a demo of the site at the following link [pokerscrum.vercel.app](https://pokerscrum.vercel.app/)
+
 After downloading the project, you must install the dependencies with the following command
 
 `npm install`
