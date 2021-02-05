@@ -46,9 +46,6 @@ export class PlayerGameComponent implements OnInit {
   refresh() {
     this.avgQuestion = 0;
     this.players = [];
-    console.log('El codigo de la room es ' + this.codeRoom);
-
-
 
     this._roomService.obtenerPlayers(this.codeRoom)
       .subscribe((resp: any) => {

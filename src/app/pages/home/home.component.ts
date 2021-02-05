@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   codeRoom = '';
   formSend = false;
   playerName = '';
+  urlPlay = '';
 
   constructor(private _roomService: RoomService,
     private _playerService: PlayerService,
@@ -26,9 +27,6 @@ export class HomeComponent implements OnInit {
       if (params.id !== undefined) {
         console.log('ID de params' + params.id);
         this.codeRoom = params.id;
-
-      } else {
-        // this.isLoading = false;
       }
     });
 
@@ -44,6 +42,7 @@ export class HomeComponent implements OnInit {
       subscribe((resp: any) => {
         console.log('Respuesta de la creacion de la sala');
         this.codeRoom = resp.room.idRoom;
+        this.urlPlay = encodeURI(document.location.protocol + '//' + document.location.host + '/#/game/play/' + this.codeRoom);
 
       })
 
@@ -64,11 +63,11 @@ export class HomeComponent implements OnInit {
     this._playerService.ingresarRoom(playerObj)
       .subscribe((resp: any) => {
         console.log(resp);
-        
-        
-      localStorage.setItem('playerName',this.playerName);
-      localStorage.setItem('idPlayer',resp.player.idPlayer);
-      
+
+
+        localStorage.setItem('playerName', this.playerName);
+        localStorage.setItem('idPlayer', resp.player.idPlayer);
+
         Swal.fire({
           icon: 'success',
           title: 'SALA ENCONTRADA',

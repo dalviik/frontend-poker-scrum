@@ -16,7 +16,6 @@ export class GameComponent implements OnInit {
   bannerQuestion = '-';
   avgQuestion = 110;
 
-
   constructor(private _roomService: RoomService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
