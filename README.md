@@ -1,27 +1,37 @@
-# FrontendPokerScrum
+# Frontend PokerScrum
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+This project has been created with the following technologies
 
-## Development server
+- Angular 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*The backend of this project is located in the following [repository](https://github.com/dalviik/backend-poker-scrum)
 
-## Code scaffolding
+After downloading the project, you must install the dependencies with the following command
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`npm install`
 
-## Build
+### Redirection to the backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To connect the frontend with the backend url you must modify the `URL_SERVICES` variable inside the `config/config.ts` folder.
 
-## Running unit tests
+___
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Then to run it in development or packaging mode you need to install the @angular-cli, using the following command
 
-## Running end-to-end tests
+`npm install -g @angular/cli`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+once the installation of the angular cli is finished, inside the project folder you must execute the following command according to what you want.
 
-## Further help
+### Development
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This command will raise the application by default on port `4200`.
+
+`ng serve --open `
+
+### Packaging
+
+This command will package the application inside the `dist` folder at the same project level.
+
+`ng build --prod`
+
+You must copy all the files generated inside the dist folder to the server you want to mount it on
